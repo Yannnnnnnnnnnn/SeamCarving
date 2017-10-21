@@ -26,7 +26,8 @@ class SeamCarver {
 	void computeEnergyAfterSeamRemoval(vector<uint> seam);
 
 public:
-	SeamCarver(Mat_<Vec3b> im) {
+	SeamCarver(Mat_<Vec3b> im) 
+	{
 		image = im;
 		duplicate = image;
 		energy = Mat(image.rows, image.cols, CV_32S, Scalar(195075));
@@ -49,7 +50,8 @@ public:
 	}
 
 	//Return the image
-	Mat_<Vec3b> getImage() {
+	Mat_<Vec3b> getImage() 
+	{
 		return image;
 	}
 
@@ -57,6 +59,7 @@ public:
 	unsigned int getEnergy(unsigned int row, unsigned int col) {
 		return energy.at<uint32_t>(row, col);
 	}
+
 
 	//Find the optimal seams
 	vector<uint> findVerticalSeam();

@@ -53,7 +53,8 @@ void SeamCarver::computeFullEnergy() {
 	}
 }
 
-void SeamCarver::computeEnergyAfterSeamRemoval(vector<uint> seam) {
+void SeamCarver::computeEnergyAfterSeamRemoval(vector<uint> seam) 
+{
 	Mat tmp = Mat(image.rows, image.cols, CV_32S, Scalar(195075));
 	for (unsigned int row = 0; row < (uint)image.rows; ++row) {
 		for (unsigned int col = 0; col < (uint)image.cols; ++col) {
@@ -73,7 +74,8 @@ void SeamCarver::computeEnergyAfterSeamRemoval(vector<uint> seam) {
 	energy = tmp;
 }
 
-vector<uint> SeamCarver::findVerticalSeam() {
+vector<uint> SeamCarver::findVerticalSeam() 
+{
 	vector<uint> seam(image.rows);
 	unsigned int distTo[image.rows][image.cols];	//Save the shortest distance from any of the top pixels
 	short edgeTo[image.rows][image.cols];			//Which of the the three top pixels, the shortest path came from
@@ -126,9 +128,11 @@ vector<uint> SeamCarver::findVerticalSeam() {
 	return seam;
 }
 
-void SeamCarver::removeVerticalSeam(vector<uint> seam) {
+void SeamCarver::removeVerticalSeam(vector<uint> seam)
+ {
 	//Move all the pixels to the right of the seam, one pixel to the left
-	for (int row = 0; row < image.rows; ++row) {
+	for (int row = 0; row < image.rows; ++row) 
+	{
 		for (int col = seam[row]; col < image.cols-1; ++col)
 			image.at<Vec3b>(row, col) = image.at<Vec3b>(row, col+1);
 	}
@@ -138,26 +142,29 @@ void SeamCarver::removeVerticalSeam(vector<uint> seam) {
 
 	//Re-compute the energy of the new image
 	computeFullEnergy();
-//	computeEnergyAfterSeamRemoval(seam);
 }
 
-vector<uint> SeamCarver::findHorizontalSeam() {
+vector<uint> SeamCarver::findHorizontalSeam() 
+{
 	vector<uint> seam(image.cols);
 	//Transpose the matrices and find the vertical seam
 	transpose(image, image);
 	transpose(energy, energy);
+
 	seam = findVerticalSeam();
 
 	//Transpose back
-	transpose(image, image);
-	transpose(energy, energy);
+	//transpose(image, image);
+	//transpose(energy, energy);
 	return seam;
 }
 
-void SeamCarver::removeHorizontalSeam(vector<uint> seam) {
+void SeamCarver::removeHorizontalSeam(vector<uint> seam) 
+{
 	//Transpose the matrices and remove the vertical seam
-	transpose(image, image);
-	transpose(energy, energy);
+	//transpose(image, image);
+	//transpose(energy, energy);
+
 	removeVerticalSeam(seam);
 
 	//Transpose back
