@@ -1,13 +1,10 @@
 SeamCarving
 ===========
 
-SeamCarving using OpenCV. 
+Origin From: http://puthraya.com/entry/seam-carving/
 
-This class creates an API to implement the techique of image seam-carving for content aware resizing. 
-
-Original paper: http://www.merl.com/publications/docs/TR2007-087.pdf
-
-My post describing the technique: http://puthraya.com/entry/seam-carving/
-
-This is a work in progress!
+Usage
+----
+Usage: ./SeamCarving <IMAGE_FILE_PATH> <CARVED_OUT_IMAGE_PATH> <NEW_INT_WIDTH> <NEW_INT_HEIGHT>
+Press Esc to exit
 
