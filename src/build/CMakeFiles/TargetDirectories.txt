@@ -1,3 +1,0 @@
-/home/yan/Desktop/otherSeamCarving/SeamCarving/src/build/CMakeFiles/rebuild_cache.dir
-/home/yan/Desktop/otherSeamCarving/SeamCarving/src/build/CMakeFiles/edit_cache.dir
-/home/yan/Desktop/otherSeamCarving/SeamCarving/src/build/CMakeFiles/SeamCarving.dir
