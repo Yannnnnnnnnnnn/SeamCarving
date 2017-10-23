@@ -28,6 +28,7 @@ void SeamCarver::showHorizontalSeam(vector<uint> seam) {
 
 void SeamCarver::computeFullEnergy() {
 	//Ensure that the size of the energy matrix matches that of the image
+	energy.release();//otherwise may lead to memory problem in long run
 	energy.create(image.rows, image.cols, CV_32S);
 
 	//Scan through the image and update the energy values. Ignore boundary pixels.
